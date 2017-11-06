@@ -1,9 +1,31 @@
+<div class = "container">
+<div class ="row">
+  <div class="col-md-6">
+    <div id="ready_to_eat">
+      <h1>Burger Menu</h1>
+          <ul>
+            {{#each burgers}}
+              <li>{{burger_name}}</li>
+              <br>
+               <form action="update/{{this.id}}?_method=PUT" method="POST">
+                          <input type="hidden" name="devoured" value="1">
+                          <button type="submit"> DEVOUR IT!</button>
+                        </form>
+              <br>
 
+            {{/each}}
+          </ul>
+        </div>
+</div>
+<div class="col-md-6">
+<form class="create-form">
+  <form action="/api/burgers" method="POST">
 
-<ul>
-  {{#each burgers}}
-    <li>{{this.burger_name}}</li>
-    <li>{{this.devoured}}</li>
-    <li>{{this.DATE}}</li>
-  {{/each}}
-</ul>
+  <div class="form-group">
+    <label for="ca"><h2>Add a Burger:</h2></label>
+    <input type="text" id="ca" name="name">
+  </div>
+  <button type="submit">Add Burger</button>
+</form>
+  </div>
+</div>
