@@ -1,5 +1,4 @@
 var express = require("express");
-var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var methodOverride = require('method-override')
 var routes = require('./controllers/burgers_controller.js');
@@ -31,6 +30,7 @@ app.get("/", function (req, res){
 });
 
 app.use("/api/burgers", routes);
+
 
 app.listen(port, function() {
   console.log("listening on port", port);

@@ -20,7 +20,8 @@ var burger = require("../models/burger.js");
 // 		burger.insertOne([req.body.burger_name], function(data){
 // 		res.redirect("/");
 // });
-	
+
+//
 // });
 // });
 // }
@@ -29,31 +30,42 @@ var burger = require("../models/burger.js");
 
 
 router.get('/', function (req, res) {
-  res.redirect('/index');
+	res.redirect('/index');
 });
 
 router.get('/', function (req, res) {
-  burger.all(function(data) {
-    var burgerObject = { burgers: data };
+	burger.all(function(data) {
+		var burgerObject = { burgers: data };
     //console.log(hbsObject);
     res.render('index', burgerObject);
-  });
+});
 });
 
 router.post('/', function (req, res) {
-  burger.insertOne(req.body.burger_name, function() {
-    res.redirect('/');
+	burger.insertOne(
+		["burger_name", "devoured"],
+		[req.body.burger_name, req.body.devoured],
+		function(result){
+			res.json({id:result.insertId})
+	});
+});
+
+
+router.put("/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  console.log("condition", condition);
+
+  burger.updateOne({
+    devoured: req.body.devoured
+  }, condition, function(data) {
+  	res.redirect("/");
   });
 });
 
+
+
+
+
 module.exports = router;
 
-// app.post("/", function(req,res){
-	
-// })
-
-// app.update("/", function(req,res){
-	
-// })
-
-// module.exports = router;
