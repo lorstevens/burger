@@ -56,12 +56,13 @@ $(function(){
 
     // Send the PUT request
     $.ajax("/api/burgers/" + id, {
-      type: "PUT",
+      type: "POST",
       data: newEatenStatus
     }).then(
       function() {
         console.log("changed status to", ifEaten);
         // Reload the page to get the updated list
+
         location.reload();
       }
     );
