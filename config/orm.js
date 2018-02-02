@@ -58,17 +58,6 @@ var orm = {
 // ===============================================================
 
 
-//   insertOne: function (table, cols, vals, cb){
-//     connection.query("INSERT INTO burgers", [table], vals, function (err, result){
-//       if (err) {
-//       throw err;
-//       }
-//       cb(result);
-//   });
-// },
-// }
-
-
 
 insertOne: function(table, cols, vals, cb){
   var queryString = "INSERT INTO " + table;
@@ -95,7 +84,7 @@ updateOne: function(table, objColVals, condition, cb) {
   var queryString = 'UPDATE ' + table;
 
   queryString += ' SET ';
-    queryString += objToSql(objColVals); //something weird is happening here
+    queryString += objToSql(objColVals); 
     queryString += ' WHERE ';
     queryString += condition;
 

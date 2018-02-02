@@ -1,20 +1,49 @@
-<div class = "container">
-  <div class ="row">
 
-    <div class="col-md-6">
-      <h1>Burger Menu:</h1>
-      <ul style="list-style: none;">
-        {{#each burgers}}
-          {{#unless devoured}}
-          {{> burger-block devour=true}}
-          {{/unless}}
-        {{/each}}
-      <ul>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+        <h1 class="welcome"> <img src="../../images/burger.png" alt="burger" height="90" width="90"> Lorna Burg</h1>
       </div>
+  
+      <h5 class="ml8">
+        <span class="letters-container">
+          <span class="letters letters-left">We're Open!</span>
+        </span>
+      </h5>
+    </div>
+
+  <div class="row">
+      <div class="col-1g-6">
+          <form class="create-form">
+              <div class="form-group">
+                  <label for="burg">
+                      <h5>Know of a good burger? Add it!</h5></label>
+                  <input type="text" id="burg" name="name">
+              </div>
+              <button type="submit">Add Burger</button>
+          </form>
+      </div>
+  </div>
 
 
-    <div class="col-md-6">
-      <h1>This is what you ate:</h1>
+  <div class="burgerMenu row">
+      <div class="col s12 m12">
+
+        <h2>Burger Menu:</h2>
+        <ul style="list-style: none; font-size: 20px">
+          {{#each burgers}}
+            {{#unless devoured}}
+            {{> burger-block devour=true}}
+            {{/unless}}
+          {{/each}}
+        <ul>
+      </div>
+  </div>
+
+<div class ="ate row">
+    <div class="col s12 m12">
+      <h4>This is what you ate:</h4>
       <ul style="list-style: none;">
       {{#each burgers}}
         {{#if devoured}}
@@ -22,20 +51,7 @@
         {{/if}}
       {{/each}}
       </ul>
-      </div>
-      </div>
+    </div>    
+</div>
 
-
-
-    <div class="col-md-12">
-      <form class="create-form">
-
-      <div class="form-group">
-        <label for="burg"><h2>Add a Burger:</h2></label>
-        <input type="text" id="burg" name="name">
-      </div>
-
-      <button type="submit">Add Burger</button>
-      </form>
-    </div>
 </div>
