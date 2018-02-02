@@ -70,32 +70,32 @@ var orm = {
 
 
 
-  insertOne: function(table, cols, vals, cb){
+insertOne: function(table, cols, vals, cb){
   var queryString = "INSERT INTO " + table;
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
+  queryString += " (";
+  queryString += cols.toString();
+  queryString += ") ";
+  queryString += "VALUES (";
+  queryString += printQuestionMarks(vals.length);
+  queryString += ") ";
 
 
-console.log(queryString)
-    connection.query(queryString, vals, function(err, data){
-      if(err) {
-        throw err;
+  console.log(queryString)
+  connection.query(queryString, vals, function(err, data){
+    if(err) {
+      throw err;
     }
-      cb(data);
-    });
-  },
+    cb(data);
+  });
+},
 
 
-    updateOne: function(table, objColVals, condition, cb) {
-    var queryString = 'UPDATE ' + table;
+updateOne: function(table, objColVals, condition, cb) {
+  var queryString = 'UPDATE ' + table;
 
-    queryString += ' SET ';
-    queryString += objToSql(objColVals);
+  queryString += ' SET ';
+    queryString += objToSql(objColVals); //something weird is happening here
     queryString += ' WHERE ';
     queryString += condition;
 
@@ -104,10 +104,10 @@ console.log(queryString)
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
-    }
+      }
       cb(result);
     });
-}
+  }
 };
 
 
