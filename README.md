@@ -15,8 +15,8 @@ A full-stack application that allows users to input the name of a burger they wi
  ### Tech Used ###
  * MySql
  * Node.js
- * Express
- * Handlebars
+ * Express.js
+ * Handlebars.js
 
 
 
