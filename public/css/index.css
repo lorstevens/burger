@@ -10,7 +10,7 @@
   text-shadow: 1px 1px pink;
 }
 
-h3{
+h2{
   font-family: 'Pacifico', cursive;
 }
 .menu{
@@ -21,14 +21,21 @@ h3{
   margin: 0 auto;*/
 }
 
+.nav-wrapper{
+  background-color: #ea955b;
+}
+
+.titleMenu{
+  background-color: grey;
+}
+
 .burgerMenu{
   background-image: url("../../images/regal.png");
   border-style: solid;
-  margin-right: 20px;
+  text-align: center;
  /* padding: 20px 50px;*/
-  padding-right: 20%;
-  padding-left: 20%;
-  display: inline-block;
+
+  /*display: inline-block;*/
 }
 
 
@@ -36,4 +43,5 @@ h3{
 .ate{
   background-image: url("../../images/regal.png");
   border-style: solid;
+  text-align: center;
 }
